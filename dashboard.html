@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlatefulParadise | Premium Food Experience</title>
+  <link rel="stylesheet" href="grand.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h2 class="logo">Plateful<span>Paradise</span></h2>
+        <div class="close-menu" id="close-menu">
+          <i class='bx bx-x'></i>
+        </div>
+      </div>
+      
+      <div class="user-info">
+        <div class="user-avatar">
+          <i class='bx bxs-user-circle'></i>
+        </div>
+        <div class="user-details">
+          <p class="user-greeting">Welcome back,</p>
+          <p class="user-name" id="user-name"></p>
+        </div>
+
+        
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="#" class="active"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+        <li><a href="orders.html"><i class='bx bx-cart-add'></i> Orders</a></li>
+        <li><a href="terms.html"><i class='bx bx-food-menu'></i> Terms & Conditions</a></li>
+        <li><a href="faq.html"><i class='bx bx-question-mark'></i> FAQ</a></li>
+        <li><a href="report.html"><i class='bx bxs-report'></i> Reports</a></li>
+        <li><a href="settings.html"><i class='bx bx-cog'></i> Settings</a></li>
+        <li><a href="index.html"><i class='bx bx-log-out'></i> Logout</a></li>
+      </ul>
+
+      <hr>
+      
+      <div class="sidebar-footer">
+       
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class='bx bxl-instagram-alt'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-youtube'></i></a>
+
+        </div>
+        <p class="copyright">&copy; 2025 PlatefulParadise. All Rights Reserved.</p>
+      </div>
+    </nav>
+
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="main-header">
+        <div class="header-left">
+          <div class="toggle-menu" id="toggle-menu">
+            <i class='bx bx-menu'></i>
+          </div>
+          <h1 id="welcome-message">Welcome to a <span>World of Flavor</span></h1>
+        </div>
+        
+        <div class="header-right">
+          <div class="search-container">
+            <input type="text" placeholder="Search dishes, cuisines..." id="search-bar">
+            <button class="search-btn"><i class='bx bx-search-alt-2'></i></button>
+            <ul id="dropdown-list" class="dropdown-list"></ul>
+          </div>
+          <div class="header-actions">
+
+            <a href="orders.html" class="notification-btn">
+              <i class='bx bx-bell'></i>
+              <span class="notification-badge">3</span>
+            </a>
+            
+            <a href="sales.html" class="notification-btn">
+              <i class='bx bx-bell'></i>
+              <span class="notification-badge">3</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats-cards">
+        <div class="stats-card">
+          <div class="card-icon" style="background-color: #FFE8D6;">
+            <i class='bx bx-restaurant' style="color: #D4A373;"></i>
+          </div>
+          <div class="card-info">
+            <h3>124</h3>
+            <p>Total Orders</p>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="card-icon" style="background-color: #E6F9F6;">
+            <i class='bx bx-time' style="color: #4ECDC4;"></i>
+          </div>
+          <div class="card-info">
+            <h3>12</h3>
+            <p>Pending</p>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="card-icon" style="background-color: #FFEEF2;">
+            <i class='bx bx-check-circle' style="color: #FF6B6B;"></i>
+          </div>
+          <div class="card-info">
+            <h3>98</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="card-icon" style="background-color: #F0F7FF;">
+            <i class='bx bx-dollar-circle' style="color: #6C8DFF;"></i>
+          </div>
+          <div class="card-info">
+            <h3>$2,845</h3>
+            <p>Revenue</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="food-categories">
+        <div class="section-header">
+          <h2>Explore Our Culinary Categories</h2>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="categories-container">
+          <!-- Category 1: Breakfast -->
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Breakfast">
+              <div class="overlay"></div>
+            </div>
+            <div class="category-content">
+              <h3>Breakfast</h3>
+              <p>Start your day with our delicious morning delights</p>
+              <a href="breakfast.html" class="category-btn">
+                <span>Explore</span>
+                <i class='bx bx-chevron-right'></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 2: Lunch -->
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Lunch">
+              <div class="overlay"></div>
+            </div>
+            <div class="category-content">
+              <h3>Lunch</h3>
+              <p>Midday meals to fuel your afternoon</p>
+              <a href="lunch.html" class="category-btn">
+                <span>Explore</span>
+                <i class='bx bx-chevron-right'></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 3: Dinner -->
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Dinner">
+              <div class="overlay"></div>
+            </div>
+            <div class="category-content">
+              <h3>Dinner</h3>
+              <p>Evening specialties to complete your day</p>
+              <a href="dinner.html" class="category-btn">
+                <span>Explore</span>
+                <i class='bx bx-chevron-right'></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 4: Desserts -->
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Desserts">
+              <div class="overlay"></div>
+            </div>
+            <div class="category-content">
+              <h3>Desserts</h3>
+              <p>Sweet endings for every occasion</p>
+              <a href="desserts.html" class="category-btn">
+                <span>Explore</span>
+                <i class='bx bx-chevron-right'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="promo-section">
+        <div class="section-header">
+          <h2>Today's Special Offers</h2>
+          <div class="promo-nav">
+            <button class="promo-nav-btn" id="prev-promo"><i class='bx bx-chevron-left'></i></button>
+            <button class="promo-nav-btn" id="next-promo"><i class='bx bx-chevron-right'></i></button>
+          </div>
+        </div>
+        
+        <div class="promo-container">
+          <div class="promo-card featured">
+            <div class="promo-badge">Featured</div>
+            <div class="promo-image">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pizza Promo">
+            </div>
+            <div class="promo-content">
+              <h3>Gourmet Pizza Night</h3>
+              <p>Buy 1 Get 1 Free on all artisan pizzas</p>
+              <div class="promo-meta">
+                <span class="promo-price"><del>$29.98</del> $14.99</span>
+                <span class="promo-time"><i class='bx bx-time-five'></i> Today Only</span>
+              </div>
+              <button class="promo-order-btn">Order Now</button>
+            </div>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-image">
+              <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1458&q=80" alt="Burger Promo">
+            </div>
+            <div class="promo-content">
+              <h3>Burger Bonanza</h3>
+              <p>20% off all premium burgers</p>
+              <div class="promo-meta">
+                <span class="promo-price"><del>$12.99</del> $10.39</span>
+                <span class="promo-time"><i class='bx bx-time-five'></i> Limited Time</span>
+              </div>
+              <button class="promo-order-btn">Order Now</button>
+            </div>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-image">
+              <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Pasta Promo">
+            </div>
+            <div class="promo-content">
+              <h3>Pasta Paradise</h3>
+              <p>Free garlic bread with any pasta order</p>
+              <div class="promo-meta">
+                <span class="promo-price">$15.99 + Free</span>
+                <span class="promo-time"><i class='bx bx-time-five'></i> Weekdays</span>
+              </div>
+              <button class="promo-order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trending-section">
+        <div class="section-header">
+          <h2>Trending This Week</h2>
+          <div class="trending-tabs">
+            <button class="tab-btn active">All</button>
+            <button class="tab-btn">Breakfast</button>
+            <button class="tab-btn">Lunch</button>
+            <button class="tab-btn">Dinner</button>
+          </div>
+        </div>
+        
+        <div class="trending-container">
+          <div class="trending-item">
+            <div class="trending-badge">Hot</div>
+            <div class="trending-image">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80" alt="Trending Dish">
+            </div>
+            <div class="trending-content">
+              <h3>Truffle Pasta</h3>
+              <div class="trending-rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+                <span>(48)</span>
+              </div>
+              <p>Creamy pasta with black truffle and mushrooms</p>
+              <div class="trending-footer">
+                <span class="price">$18.99</span>
+                <button class="add-to-cart"><i class='bx bx-plus'></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="trending-item">
+            <div class="trending-image">
+              <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80" alt="Trending Dish">
+            </div>
+            <div class="trending-content">
+              <h3>Avocado Toast</h3>
+              <div class="trending-rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bx-star'></i>
+                <span>(36)</span>
+              </div>
+              <p>Sourdough bread with smashed avocado and eggs</p>
+              <div class="trending-footer">
+                <span class="price">$12.50</span>
+                <button class="add-to-cart"><i class='bx bx-plus'></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="trending-item">
+            <div class="trending-image">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Trending Dish">
+            </div>
+            <div class="trending-content">
+              <h3>Grilled Salmon</h3>
+              <div class="trending-rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <span>(62)</span>
+              </div>
+              <p>Fresh salmon with lemon butter sauce</p>
+              <div class="trending-footer">
+                <span class="price">$22.99</span>
+                <button class="add-to-cart"><i class='bx bx-plus'></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="trending-item">
+            <div class="trending-badge">New</div>
+            <div class="trending-image">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Trending Dish">
+            </div>
+            <div class="trending-content">
+              <h3>Buddha Bowl</h3>
+              <div class="trending-rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+                <span>(29)</span>
+              </div>
+              <p>Healthy bowl with quinoa and seasonal veggies</p>
+              <div class="trending-footer">
+                <span class="price">$14.99</span>
+                <button class="add-to-cart"><i class='bx bx-plus'></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="grand.js"></script>
+</body>
+
+</html>

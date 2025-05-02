@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Plateful Paradise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="faq.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Premium Navigation Bar -->
+    <nav class="premium-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://marketplace.canva.com/EAFpeiTrl4c/2/0/1600w/canva-abstract-chef-cooking-restaurant-free-logo-a1RYzvS1EFo.jpg" alt="Plateful Paradise" class="logo">
+                <span class="brand-name">Plateful Paradise</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="account.html" class="nav-cta">My Account</a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="faq-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Frequently Asked Questions</h1>
+            <p class="hero-subtitle">Find answers to common questions about our services</p>
+            <div class="search-container">
+                <input type="text" id="faqSearch" placeholder="Search FAQs...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="faq-container">
+        <!-- FAQ Categories -->
+        <aside class="faq-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-header">
+                    <h3>FAQ Categories</h3>
+                </div>
+                <nav class="faq-categories">
+                    <ul>
+                        <li><a href="#ordering" class="category-link active" data-category="ordering"><i class="fas fa-shopping-cart"></i> Ordering</a></li>
+                        <li><a href="#delivery" class="category-link" data-category="delivery"><i class="fas fa-truck"></i> Delivery</a></li>
+                        <li><a href="#payments" class="category-link" data-category="payments"><i class="fas fa-credit-card"></i> Payments</a></li>
+                        <li><a href="#account" class="category-link" data-category="account"><i class="fas fa-user"></i> Account</a></li>
+                        <li><a href="#safety" class="category-link" data-category="safety"><i class="fas fa-shield-alt"></i> Safety</a></li>
+                        <li><a href="#other" class="category-link" data-category="other"><i class="fas fa-question-circle"></i> Other</a></li>
+                    </ul>
+                </nav>
+                <div class="sidebar-footer">
+                    <div class="help-card">
+                        <i class="fas fa-headset"></i>
+                        <h4>Still need help?</h4>
+                        <p>Our support team is available 24/7</p>
+                        <a href="contact.html" class="help-btn">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FAQ Content -->
+        <article class="faq-content">
+            <!-- Ordering Section -->
+            <section id="ordering" class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-shopping-cart"></i> Ordering Questions</h2>
+                    <span class="section-count">8 Questions</span>
+                </div>
+                
+                <div class="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I place an order?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To place an order, simply browse our menu, select your desired items, and proceed to checkout. You'll need to provide your delivery address and payment information to complete your order.</p>
+                            <div class="answer-extras">
+                                <div class="extra-tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <p><strong>Pro Tip:</strong> Create an account to save your favorite orders for faster checkout next time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I modify or cancel my order after placing it?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can modify or cancel your order within 10 minutes of placing it by contacting our customer support team. After this window, your order enters preparation and cannot be changed.</p>
+                            <div class="answer-extras">
+                                <div class="extra-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p><strong>Note:</strong> For immediate assistance, call our support line at +91 9876543210.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are your operating hours?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our kitchen operates from 8:00 AM to 11:00 PM daily. However, delivery hours may vary based on your location and local regulations.</p>
+                            <div class="answer-extras">
+                                <div class="extra-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Opening Time</th>
+                                                <th>Closing Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Monday - Friday</td>
+                                                <td>8:00 AM</td>
+                                                <td>11:00 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturday - Sunday</td>
+                                                <td>9:00 AM</td>
+                                                <td>11:00 PM</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional FAQ items would continue here... -->
+                </div>
+            </section>
+
+            <!-- Delivery Section -->
+            <section id="delivery" class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-truck"></i> Delivery Questions</h2>
+                    <span class="section-count">6 Questions</span>
+                </div>
+                
+                <div class="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What areas do you deliver to?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We currently deliver to most areas within Mumbai. During checkout, you can enter your address to confirm if we deliver to your location.</p>
+                            <div class="answer-extras">
+                                <div class="extra-map">
+                                    <img src="assets/delivery-map.jpg" alt="Delivery Areas" class="map-image">
+                                    <p class="map-caption">Our current delivery coverage area (subject to change)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does delivery take?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Delivery times vary based on your location and current order volume. Typical delivery times are:</p>
+                            <div class="answer-extras">
+                                <div class="extra-stats">
+                                    <div class="stat-card">
+                                        <div class="stat-value">30-45 min</div>
+                                        <div class="stat-label">Within 5km</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value">45-60 min</div>
+                                        <div class="stat-label">5-10km</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value">60-75 min</div>
+                                        <div class="stat-label">10-15km</div>
+                                    </div>
+                                </div>
+                                <div class="extra-note">
+                                    <i class="fas fa-clock"></i>
+                                    <p>During peak hours (7-9 PM), delivery times may be slightly longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional FAQ items would continue here... -->
+                </div>
+            </section>
+
+            <!-- Payments Section -->
+            <section id="payments" class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment Questions</h2>
+                    <span class="section-count">5 Questions</span>
+                </div>
+                
+                <div class="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What payment methods do you accept?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept various payment methods for your convenience:</p>
+                            <div class="answer-extras">
+                                <div class="payment-methods">
+                                    <div class="payment-method">
+                                        <div class="payment-icon visa">
+                                            <i class="fab fa-cc-visa"></i>
+                                        </div>
+                                        <span>Visa</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="payment-icon mastercard">
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </div>
+                                        <span>Mastercard</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="payment-icon upi">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <span>UPI</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="payment-icon cash">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <span>Cash</span>
+                                    </div>
+                                </div>
+                                <div class="extra-note">
+                                    <i class="fas fa-lock"></i>
+                                    <p>All online payments are processed through secure, encrypted channels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional FAQ items would continue here... -->
+                </div>
+            </section>
+
+            <!-- Additional sections would continue here... -->
+            
+            <!-- Feedback Section -->
+            <section class="feedback-section">
+                <div class="feedback-card">
+                    <div class="feedback-content">
+                        <h3>Was this helpful?</h3>
+                        <p>Let us know if you found the answers you were looking for</p>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn yes-btn"><i class="fas fa-thumbs-up"></i> Yes</button>
+                            <button class="feedback-btn no-btn"><i class="fas fa-thumbs-down"></i> No</button>
+                        </div>
+                    </div>
+                    <div class="feedback-image">
+                        <img src="assets/support-agent.png" alt="Support Agent">
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/logo-white.png" alt="Plateful Paradise" class="footer-logo">
+                    <p class="footer-tagline">Delivering culinary excellence to your doorstep.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="link-title">Company</h4>
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="careers.html" class="footer-link">Careers</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="press.html" class="footer-link">Press</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="link-title">Support</h4>
+                        <a href="contact.html" class="footer-link">Contact Us</a>
+                        <a href="faq.html" class="footer-link active">FAQs</a>
+                        <a href="delivery.html" class="footer-link">Delivery Areas</a>
+                        <a href="feedback.html" class="footer-link">Feedback</a>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="link-title">Legal</h4>
+                        <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                        <a href="cookies.html" class="footer-link">Cookie Policy</a>
+                        <a href="refund.html" class="footer-link">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2023 Plateful Paradise. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="#" class="legal-link">Accessibility</a>
+                        <a href="#" class="legal-link">Sitemap</a>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-mastercard"></i>
+                    </div>
+                    <div class="payment-icon">
+                        <i class="fab fa-cc-amex"></i>
+                    </div>
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contact Support</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="supportForm">
+                    <div class="form-group">
+                        <label for="supportName">Your Name</label>
+                        <input type="text" id="supportName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supportEmail">Email Address</label>
+                        <input type="email" id="supportEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supportQuestion">Your Question</label>
+                        <textarea id="supportQuestion" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="supportOrder">Order Number (if applicable)</label>
+                        <input type="text" id="supportOrder">
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="faq.js"></script>
+</body>
+</html>

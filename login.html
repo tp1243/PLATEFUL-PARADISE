@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script type="module" src="login.js" defer></script>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- Left Section: Image Grid -->
+    <div class="image-grid">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/140430115517-06-comfort-foods.jpg?q=w_1110,c_fill"
+        alt="Nature 1">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
+        alt="City Night">
+      <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="Forest">
+      <img
+        src="https://www.health.com/thmb/ZhRDQQckVctFLZh9gbn4hTAZTEQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1337858144-06b338e35fdc4ec3bb44a8ca8bbbbc7c.jpg"
+        alt="Technology">
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="container">
+      <h1>Welcome Back!</h1>
+      <p class="subtitle">Please login to your account</p>
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-icon">
+            <i class='bx bxs-envelope'></i>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-icon">
+            <i class='bx bxs-lock-alt'></i>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+        </div>
+        <button type="submit" id="login" class="btn">Login</button>
+      </form>
+      <p class="register-link">Don't have an account? <a href="index.html">Register Here</a></p>
+    </div>
+  </div>
+</body>
+
+</html>

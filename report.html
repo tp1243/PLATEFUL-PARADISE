@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script defer src="report.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #13141f;
+            --bg-card: #1e2131;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a3bd;
+            --accent-purple: #7b61ff;
+            --accent-green: #2ecc71;
+            --accent-red: #e74c3c;
+            --card-radius: 12px;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-control {
+            background-color: var(--bg-card);
+            border-radius: var(--card-radius);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+
+        .filter-control label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .filter-control select {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5a.5.5 0 0 1-.354-.146l-4-4a.5.5 0 1 1 .708-.708L8 9.293l3.646-3.647a.5.5 0 0 1 .708.708l-4 4A.5.5 0 0 1 8 10.5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 6px center;
+            padding-right: 30px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-card);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .metric-change {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        .metric-change.positive {
+            color: var(--accent-green);
+        }
+
+        .metric-change.negative {
+            color: var(--accent-red);
+        }
+
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            background-color: var(--bg-card);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chart-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chart-tab {
+            background-color: rgba(123, 97, 255, 0.1);
+            color: var(--accent-purple);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .chart-tab.active {
+            background-color: var(--accent-purple);
+            color: white;
+        }
+
+        .transactions {
+            margin-bottom: 20px;
+        }
+
+        .transactions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .transactions-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .show-dropdown {
+            display: flex;
+            align-items: center;
+            background-color: rgba(123, 97, 255, 0.1);
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+
+        .show-dropdown select {
+            background-color: transparent;
+            border: none;
+            color: var(--accent-purple);
+            font-size: 14px;
+            margin-left: 8px;
+        }
+
+        .transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .transactions-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .transactions-table td {
+            padding: 12px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        .transaction-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .transaction-status.completed {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+
+        .transaction-status.pending {
+            background-color: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+        }
+
+        .transaction-status.undefined {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+
+        .side-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .side-metric {
+            background-color: var(--bg-card);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .side-metric-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .side-metric-value {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .icon-wallet {
+            background-color: rgba(123, 97, 255, 0.2);
+            color: #7b61ff;
+        }
+
+        .icon-shopping {
+            background-color: rgba(233, 30, 99, 0.2);
+            color: #e91e63;
+        }
+
+        .icon-receipt {
+            background-color: rgba(3, 169, 244, 0.2);
+            color: #03a9f4;
+        }
+
+        .icon-chart {
+            background-color: rgba(0, 200, 83, 0.2);
+            color: #00c853;
+        }
+
+        .footer {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+            }
+            
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .transactions-table th:nth-child(3),
+            .transactions-table td:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="filter-controls">
+            <div class="filter-control">
+                <label>Date Range:</label>
+                <select id="dateRange">
+                    <option value="30">Last 30 Days</option>
+                    <option value="7">Last 7 Days</option>
+                    <option value="90">Last 90 Days</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <label>Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <label>Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-icon">
+                    <div class="icon-circle icon-wallet">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                </div>
+                <div class="metric-value">₹<span id="totalRevenue">0</span></div>
+                <div class="metric-label">Total Revenue</div>
+                <div class="metric-change" id="revenueChange">
+                    <i class="fas fa-arrow-down"></i> 0% vs previous period
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">
+                    <div class="icon-circle icon-shopping">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                </div>
+                <div class="metric-value"><span id="totalOrders">0</span></div>
+                <div class="metric-label">Total Orders</div>
+                <div class="metric-change" id="ordersChange">
+                    <i class="fas fa-arrow-up"></i> 0% vs previous period
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">
+                    <div class="icon-circle icon-receipt">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                </div>
+                <div class="metric-value">₹<span id="averageOrder">0</span></div>
+                <div class="metric-label">Average Order</div>
+                <div class="metric-change" id="averageChange">
+                    <i class="fas fa-arrow-down"></i> 0% vs previous period
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">
+                    <div class="icon-circle icon-chart">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="metric-value"><span id="conversionRate">0</span>%</div>
+                <div class="metric-label">Conversion Rate</div>
+                <div class="metric-change" id="conversionChange">
+                    <i class="fas fa-arrow-down"></i> 0% vs previous period
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-title">Revenue Trends</div>
+                    <div class="chart-tabs">
+                        <button class="chart-tab active" id="barChartTab">Bar</button>
+                        <button class="chart-tab" id="lineChartTab">Line</button>
+                        <button class="chart-tab" id="areaChartTab">Area</button>
+                    </div>
+                </div>
+                <canvas id="revenueChart" height="250"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-title">Sales Distribution</div>
+                    <div class="chart-tabs">
+                        <button class="chart-tab active" id="pieChartTab">Pie</button>
+                        <button class="chart-tab" id="doughnutChartTab">Doughnut</button>
+                        <button class="chart-tab" id="polarChartTab">Polar</button>
+                    </div>
+                </div>
+                <canvas id="salesDistributionChart" height="250"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-container transactions">
+            <div class="transactions-header">
+                <div class="transactions-title">Recent Transactions</div>
+                <div class="show-dropdown">
+                    <span>Show</span>
+                    <select id="showTransactions">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsTableBody">
+                        <!-- Transactions will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="side-metrics">
+            <div class="side-metric">
+                <div class="side-metric-label">
+                    <i class="fas fa-fire" style="color: #ff6b6b;"></i>
+                    Top Selling Product
+                </div>
+                <div class="side-metric-value" id="topProduct">Nike Air Max</div>
+            </div>
+            <div class="side-metric">
+                <div class="side-metric-label">
+                    <i class="fas fa-user-check" style="color: #4facfe;"></i>
+                    Most Loyal Customer
+                </div>
+                <div class="side-metric-value" id="loyalCustomer">undefined</div>
+            </div>
+            <div class="side-metric">
+                <div class="side-metric-label">
+                    <i class="fas fa-shipping-fast" style="color: #43e97b;"></i>
+                    Fulfillment Rate
+                </div>
+                <div class="side-metric-value" id="fulfillmentRate">0.0%</div>
+            </div>
+            <div class="side-metric">
+                <div class="side-metric-label">
+                    <i class="fas fa-chart-line" style="color: #2ecc71;"></i>
+                    Growth Rate
+                </div>
+                <div class="side-metric-value" id="growthRate">2.2%</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>Last updated: <span id="lastUpdatedTime"></span></div>
+            <div>Top day: <span id="topDay"></span> (₹<span id="topDayAmount">0</span>)</div>
+        </div>
+    </div>
+</body>
+</html>

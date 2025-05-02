@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateful Paradise | Order Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="orders.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div class="orders-container">
+        <header class="orders-header">
+            <div class="header-content">
+                <div class="logo-title">
+                    <img src="data:image/png;base64,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"
+                        alt="Plateful Paradise Logo" class="logo">
+                    <h1>Order Management</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="search-filter">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="orderSearch" placeholder="Search orders...">
+                        </div>
+                        <select id="filterStatus">
+                            <option value="all">All Orders</option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Pending</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <button id="exportOrders" class="export-btn">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalOrders">0</div>
+                    <div class="stat-label">Total Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="todayOrders">0</div>
+                    <div class="stat-label">Today's Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalRevenue">₹0</div>
+                    <div class="stat-label">Total Revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgOrderValue">₹0</div>
+                    <div class="stat-label">Avg. Order Value</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="orders-content">
+            <div class="orders-table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Payment</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+                <div class="table-footer">
+                    <div class="rows-count">Showing <span id="showingCount">0</span> of <span id="totalCount">0</span>
+                        orders</div>
+                    <div class="pagination">
+                        <button id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+                        <span id="currentPage">1</span>
+                        <button id="nextPage" disabled><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Order Details Modal -->
+        <div id="orderDetailsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalOrderTitle">Order Details</h2>
+                    <button class="close-modal" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="order-info-grid">
+                        <div class="order-info-card">
+                            <h3><i class="fas fa-info-circle"></i> Order Information</h3>
+                            <div class="info-row">
+                                <span class="info-label">Order ID:</span>
+                                <span id="modalOrderId" class="info-value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Date & Time:</span>
+                                <span id="modalOrderDate" class="info-value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Status:</span>
+                                <span id="modalOrderStatus" class="info-value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Payment Method:</span>
+                                <span id="modalOrderPayment" class="info-value"></span>
+                            </div>
+                        </div>
+
+                        <div class="order-info-card">
+                            <h3><i class="fas fa-user"></i> Customer Information</h3>
+                            <div class="info-row">
+                                <span class="info-label">Name:</span>
+                                <span id="modalCustomerName" class="info-value">Walk-in Customer</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Contact:</span>
+                                <span id="modalCustomerContact" class="info-value">Not provided</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-items-card">
+                        <h3><i class="fas fa-utensils"></i> Order Items</h3>
+                        <div class="items-table-container">
+                            <table class="items-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modalOrderItems">
+                                    <!-- Items will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="order-summary-card">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="modalSubtotal">₹0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (5%):</span>
+                            <span id="modalTax">₹0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total Amount:</span>
+                            <span id="modalTotal">₹0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-actions">
+                        <button id="printOrder" class="action-btn print-btn">
+                            <i class="fas fa-print"></i> Print Receipt
+                        </button>
+                        <div class="status-actions">
+                            <select id="updateStatus" class="status-select">
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <button id="saveStatus" class="action-btn save-btn">
+                                <i class="fas fa-save"></i> Update Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="orders-page.js"></script>
+</body>
+
+</html>
