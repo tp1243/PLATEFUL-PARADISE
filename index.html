@@ -4,57 +4,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account</title>
+  <title>Create Account | Gourmet Journey</title>
   <link rel="stylesheet" href="register.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script type="module" src="register.js" defer></script>
 </head>
 
 <body>
+  <div class="particles-container" id="particles-js"></div>
+  
   <div class="main-container">
-    <!-- Left Section: Image Grid -->
-    <div class="image-grid">
-      <img src="https://media.cnn.com/api/v1/images/stellar/prod/140430115517-06-comfort-foods.jpg?q=w_1110,c_fill" alt="Nature 1">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg" alt="City Night">
-      <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="Forest">
-      <img src="https://www.health.com/thmb/ZhRDQQckVctFLZh9gbn4hTAZTEQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1337858144-06b338e35fdc4ec3bb44a8ca8bbbbc7c.jpg" alt="Technology">
+    <!-- Left Section: Animated Food Showcase -->
+    <div class="food-showcase">
+      <div class="floating-food">
+        <div class="food-item burger animate__animated animate__fadeIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png" alt="Burger">
+          <div class="food-shadow"></div>
+        </div>
+        <div class="food-item pizza animate__animated animate__fadeIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Pizza">
+          <div class="food-shadow"></div>
+        </div>
+        <div class="food-item taco animate__animated animate__fadeIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/3480/3480615.png" alt="Taco">
+          <div class="food-shadow"></div>
+        </div>
+        <div class="food-item sushi animate__animated animate__fadeIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/2718/2718224.png" alt="Sushi">
+          <div class="food-shadow"></div>
+        </div>
+        <div class="food-item icecream animate__animated animate__fadeIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/3058/3058979.png" alt="Ice Cream">
+          <div class="food-shadow"></div>
+        </div>
+      </div>
+      
+      <div class="showcase-content">
+        <h2 class="animate__animated animate__fadeInDown">Begin Your <span>Gourmet Journey</span></h2>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Join our exclusive community of food enthusiasts and unlock a world of culinary delights.</p>
+        
+        <div class="features-grid">
+          <div class="feature-item animate__animated animate__fadeInLeft animate__delay-1s">
+            <i class='bx bxs-star'></i>
+            <span>Premium Recipes</span>
+          </div>
+          <div class="feature-item animate__animated animate__fadeInLeft animate__delay-1.2s">
+            <i class='bx bxs-discount'></i>
+            <span>Exclusive Deals</span>
+          </div>
+          <div class="feature-item animate__animated animate__fadeInLeft animate__delay-1.4s">
+            <i class='bx bxs-calendar-event'></i>
+            <span>VIP Events</span>
+          </div>
+          <div class="feature-item animate__animated animate__fadeInLeft animate__delay-1.6s">
+            <i class='bx bxs-user-voice'></i>
+            <span>Personalized Tips</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Right Section: Register Form -->
+    <!-- Right Section: Premium Register Form -->
     <div class="container">
-      <h1>Create Account</h1>
-      <p class="subtitle">Join us today to get started!</p>
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <div class="input-icon">
-            <i class='bx bxs-user'></i>
-            <input type="text" id="name" placeholder="Your Name" required>
+      <div class="form-card">
+        <div class="form-header">
+          <div class="logo animate__animated animate__fadeIn">
+            <i class='bx bxs-bowl-hot'></i>
+            <span>Gourmet</span>
           </div>
+          <h1 class="animate__animated animate__fadeIn animate__delay-0.5s">Create Your Account</h1>
+          <p class="subtitle animate__animated animate__fadeIn animate__delay-0.7s">Join our culinary community today</p>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <div class="input-icon">
-            <i class='bx bxs-envelope'></i>
-            <input type="email" id="email" placeholder="Enter your email" required>
+        
+        <form>
+          <div class="form-group animate__animated animate__fadeIn animate__delay-0.9s">
+            <div class="input-icon">
+              <i class='bx bxs-user'></i>
+              <input type="text" id="name" placeholder="Your Full Name" required>
+              <div class="input-border"></div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <div class="input-icon">
-            <i class='bx bxs-lock-alt'></i>
-            <input type="password" id="password" placeholder="Create a password" required>
+          
+          <div class="form-group animate__animated animate__fadeIn animate__delay-1.1s">
+            <div class="input-icon">
+              <i class='bx bxs-envelope'></i>
+              <input type="email" id="email" placeholder="Your Email Address" required>
+              <div class="input-border"></div>
+            </div>
           </div>
+          
+          <div class="form-group animate__animated animate__fadeIn animate__delay-1.3s">
+            <div class="input-icon">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" id="password" placeholder="Create a Password" required>
+              <i class='bx bxs-show show-password'></i>
+              <div class="input-border"></div>
+            </div>
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div class="strength-fill"></div>
+              </div>
+              <span class="strength-text">Password strength: <span class="strength-value">Weak</span></span>
+            </div>
+          </div>
+          
+          <div class="form-footer animate__animated animate__fadeIn animate__delay-1.5s">
+            <button type="submit" id="submit" class="btn">
+              <span class="btn-text">Create Account</span>
+              <div class="btn-loader">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+              </div>
+              <i class='bx bx-arrow-to-right btn-arrow'></i>
+            </button>
+            
+            <div class="terms">
+              <input type="checkbox" id="terms" required>
+              <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+          </div>
+        </form>
+        
+        <div class="divider animate__animated animate__fadeIn animate__delay-1.7s">
+          <span>or continue with</span>
         </div>
-        <button type="submit" id="submit" class="btn">Create Account</button>
-      </form>
-      <div class="social-login">
-        <button class="google-btn"><i class='bx bxl-google'></i> Sign up with Google</button>
-        <button class="facebook-btn"><i class='bx bxl-facebook'></i> Sign up with Facebook</button>
+        
+        <div class="social-login animate__animated animate__fadeIn animate__delay-1.9s">
+          <button class="social-btn google-btn">
+            <i class='bx bxl-google'></i>
+          </button>
+          <button class="social-btn facebook-btn">
+            <i class='bx bxl-facebook'></i>
+          </button>
+          <button class="social-btn apple-btn">
+            <i class='bx bxl-apple'></i>
+          </button>
+        </div>
+        
+        <p class="login-link animate__animated animate__fadeIn animate__delay-2.1s">Already have an account? <a href="login.html">Sign In</a></p>
       </div>
-      <p class="login-link">Already have an account? <a href="login.html">Login Here</a></p>
     </div>
   </div>
+  
+  <div class="bg-elements">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 
 </html>
